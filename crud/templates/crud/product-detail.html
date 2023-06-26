@@ -1,0 +1,70 @@
+{% extends 'crud/base.html' %}
+
+{% load static %}
+
+{% block title %}{{producto.idProducto}}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row mb-3">
+        <h1>Producto: {{producto.idProducto}}</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            {% if producto.imagen %}
+                <img class="img-thumbnail" src="{{producto.imagen.url}}" alt="{{producto.idProducto}}">
+            {% else %}
+                <img class="img-thumbnail" src="{% static 'crud/img/not_found.png' %}" alt="{{producto.idProducto}}">
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            <ul class="list-unstyled">
+                <li class="mb-2">Descripción: <p class="fw-bold">{{producto.descripcion}}</p></li>
+                <li class="mb-2">Marca: <p class="fw-bold">{{producto.marca}}</p></li>
+                <li class="mb-2">Precio: {{producto.precio}}</li>
+                <li class="mb-2">Stock: {{producto.stock}}</li>
+            </ul>
+            <div class="row">
+                <div class="col-2">
+                    <a class="btn btn-outline-warning mx-auto" href="/crud/{{producto.idProducto}}/edit">Editar</a>
+                </div>
+                <div class="col-2">
+                    <a class="btn btn-outline-danger modal-borrar mx-auto" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-href="/crud/{{producto.idProducto}}/delete">Eliminar</a>
+                </div>
+                <div class="col-2">
+                    <a class="btn btn-outline-primary mx-auto" href="{% url 'product-list' %}">Volver</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Mensajes</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6 class="modal-title">Estas seguro que deseas eliminar el producto seleccionado?<br>Este proceso no se puede deshacer.</h6>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">No</button>
+                <a href="#" id="confirmar-borrar" class="btn btn-danger">Si</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script>
+    $('.modal-borrar').on('click',function() {
+        const href = $(this).attr('data-href');
+        $('#confirmar-borrar').attr('href',href);
+    })
+</script>
+{% endblock %}

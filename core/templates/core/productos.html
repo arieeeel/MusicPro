@@ -1,0 +1,100 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Productos{% endblock %}
+
+{% block content %}
+<div class="slider">
+    <div class="slide-track">
+        <div class="slide">
+            <img src="{% static 'core/imgd/1.png' %}" alt="">
+
+        </div>
+        <div class="slide">
+            <img src="{% static 'core/imgd/2.png' %}" alt="">
+
+        </div>
+        <div class="slide">
+            <img src="{% static 'core/imgd/3.png' %}" alt="">
+
+        </div>
+        <div class="slide">
+            <img src="{% static 'core/imgd/4.png' %}" alt="">
+
+        </div>
+        <div class="slide">
+            <img src="{% static 'core/imgd/5.png' %}" alt="">
+
+        </div>
+        <div class="slide">
+            <img src="{% static 'core/imgd/6.png' %}" alt="">
+
+        </div>
+        <div class="slide">
+            <img src="{% static 'core/imgd/7.png' %}" alt="">
+
+        </div>
+
+        <div class="slide">
+            <img src="{% static 'core/imgd/1.png' %}" alt="">
+
+        </div>
+        <div class="slide">
+            <img src="{% static 'core/imgd/2.png' %}" alt="">
+
+        </div>
+        <div class="slide">
+            <img src="{% static 'core/imgd/3.png' %}" alt="">
+
+        </div>
+        <div class="slide">
+            <img src="{% static 'core/imgd/4.png' %}" alt="">
+
+        </div>
+        <div class="slide">
+            <img src="{% static 'core/imgd/5.png' %}" alt="">
+
+        </div>
+        <div class="slide">
+            <img src="{% static 'core/imgd/6.png' %}" alt="">
+
+        </div>
+        <div class="slide">
+            <img src="{% static 'core/imgd/7.png' %}" alt="">
+
+        </div>
+    </div>
+</div>
+<div class="container py-5 bg-dark text-white mt-4 text-center">
+    <h1>Nuestros productos</h1>
+</div>
+{% endblock %}
+
+{% block secondary_content %}
+<div class="container mt-4 mb-4">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        {% for p in productos %}
+        <div class="col">
+            <div class="card">
+                {% if p.imagen %}
+                <img class="card-img-top" src="{{p.imagen.url}}" alt="{{p.idPrducto}}"></td>
+                {% else %}
+                <img class="card-img-top" src="{% static 'crud/img/not_found.png' %}" alt="{{p.idPrducto}}"></td>
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{p.marca}}</h5>
+                    <p class="card-text">{{p.descripcion}}</p>
+                    <p class="card-text font-primary">{{p.precio}}</p>
+                    <p class="card-text text-muted">Unidades en stock: {{p.stock}}</p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="#" class="u-full-width button-primary button input agregar-carrito">Agregar Al
+                        Carrito</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

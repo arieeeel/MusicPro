@@ -1,0 +1,173 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<main>
+    <!--Carousel-->
+<div class="container mt-2">
+    <div id="carouselFeatures" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselFeatures" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselFeatures" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselFeatures" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselFeatures" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselFeatures" data-bs-slide-to="4"
+                aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'core/imgd/wal.jpg' %}" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'core/imgd/wal2.jpg' %}" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'core/imgd/wal3.jpg' %}" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'core/imgd/wal4.jpg' %}" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'core/imgd/wal5.jpg' %}" class="d-block w-100" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Carousel-->
+    <div id="lista-producto" class="container">
+        <h1 id="encabezado" class="encabezado text-center">Mas Buscados</h1>
+        <div class="row">
+            <div class="four columns">
+                <div class="card">
+                    <img src="{% static 'core/imgd/guitar13.jpg' %}" class="u-full-width" alt="">
+                    <div class="info-card">
+                        <img src="{% static 'core/imgd/estrellas.png' %}" class="u-full-width">
+                        <h4>Bajo eléctrico Stream2</h4>
+                        <p>Marca: ESP</p>
+                        <p class="precio">$3.200.000 <span class="u-pull-right">$2.919.900</span></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{% static 'core/imgd/guitar10.jpg' %}" class="u-full-width" alt="">
+                    <div class="info-card">
+                        <img src="{% static 'core/imgd/estrellas.png' %}" class="u-full-width">
+                        <h4>Bajo eléctrico LTD F-204</h4>
+                        <p>Marca: LTD</p>
+                        <p class="precio">$699.990 <span class="u-pull-right">$599.900</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="four columns">
+                <div class="card">
+                    <img src="{% static 'core/imgd/guitar11.jpg' %}" class="u-full-width" alt="">
+                    <div class="info-card">
+                        <img src="{% static 'core/imgd/estrellas.png' %}" class="u-full-width">
+                        <h4>Bajo eléctrico SR305EB</h4>
+                        <p>Plataforma: PS5</p>
+                        <p class="precio">$399.900 <span class="u-pull-right">$325.000</span></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{% static 'core/imgd/guitar2.jpg' %}" class="u-full-width" alt="">
+                    <div class="info-card">
+                        <img src="{% static 'core/imgd/estrellas.png' %}" class="u-full-width">
+                        <h4>Guitarra Eléctrica Les Paul</h4>
+                        <p>Marca: Logitech</p>
+                        <p class="precio">$600.000 <span class="u-pull-right">$499.900</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="four columns">
+                <div class="card">
+                    <img src="{% static 'core/imgd/guitar3.jpg' %}" class="u-full-width" alt="">
+                    <div class="info-card">
+                        <img src="{% static 'core/imgd/estrellas.png' %}" class="u-full-width">
+                        <h4>Guitarra Eléctrica SG Muse</h4>
+                        <p>Marca: Epiphone</p>
+                        <p class="precio">$659.900 <span class="u-pull-right">$529.990</span></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{% static 'core/imgd/guitar8.jpg' %}" class="u-full-width" alt="">
+                    <div class="info-card">
+                        <img src="{% static 'core/imgd/estrellas.png' %}" class="u-full-width">
+                        <h4>Guitarra Eléctrica Cust 2408</h4>
+                        <p>Marca: PRS</p>
+                        <p class="precio">$1.500.000 <span class="u-pull-right">$1.199.900</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider">
+        <div class="slide-track">
+            <div class="slide">
+                <img src="{% static 'core/imgd/1.png' %}" alt="">
+
+            </div>
+            <div class="slide">
+                <img src="{% static 'core/imgd/2.png' %}" alt="">
+
+            </div>
+            <div class="slide">
+                <img src="{% static 'core/imgd/3.png' %}" alt="">
+
+            </div>
+            <div class="slide">
+                <img src="{% static 'core/imgd/4.png' %}" alt="">
+
+            </div>
+            <div class="slide">
+                <img src="{% static 'core/imgd/5.png' %}" alt="">
+
+            </div>
+            <div class="slide">
+                <img src="{% static 'core/imgd/6.png' %}" alt="">
+
+            </div>
+            <div class="slide">
+                <img src="{% static 'core/imgd/7.png' %}" alt="">
+    
+            </div>
+
+            <div class="slide">
+                <img src="{% static 'core/imgd/1.png' %}" alt="">
+
+            </div>
+            <div class="slide">
+                <img src="{% static 'core/imgd/2.png' %}" alt="">
+
+            </div>
+            <div class="slide">
+                <img src="{% static 'core/imgd/3.png' %}" alt="">
+
+            </div>
+            <div class="slide">
+                <img src="{% static 'core/imgd/4.png' %}" alt="">
+
+            </div>
+            <div class="slide">
+                <img src="{% static 'core/imgd/5.png' %}" alt="">
+
+            </div>
+            <div class="slide">
+                <img src="{% static 'core/imgd/6.png' %}" alt="">
+
+            </div>
+            <div class="slide">
+                <img src="{% static 'core/imgd/7.png' %}" alt="">
+    
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
