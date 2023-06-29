@@ -1,0 +1,12 @@
+openapi: 3.0.0
+info:
+  title: Mi API
+  description: Descripción de mi API
+  version: 1.0.0
+paths:
+  /ruta/ejemplo:
+    get:
+      summary: Obtener información de ejemplo
+      responses:
+        '200':
+          description: Respuesta exitosa

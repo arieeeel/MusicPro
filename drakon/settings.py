@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'core',
     'crud',
     'api',
+    'drf_yasg',
     
 
 ]

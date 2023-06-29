@@ -13,22 +13,35 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 
+schema_view = get_schema_view(
+    openapi.Info(
+        title="Documentacion API",
+        default_version='v1',
+        description="documentacion API",
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)
 
 urlpatterns = [
-    path('',include('core.urls')),
-    path('crud/',include('crud.urls')),
-    path('api/',include('api.urls')),
+    path('', include('core.urls')),
+    path('crud/', include('crud.urls')),
+    path('api/', include('api.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('admin/', admin.site.urls, name='admin') 
+    path('admin/', admin.site.urls, name='admin'),
+    path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
 
 if settings.DEBUG:
     from django.conf.urls.static import static
-    urlpatterns+= static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
-
-
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
