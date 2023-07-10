@@ -12,6 +12,7 @@ from drf_yasg.utils import swagger_auto_schema
 from rest_framework.decorators import api_view
 
 
+
 # Create your views here.
 @api_view(['POST'])
 def transporte(request):
@@ -54,6 +55,7 @@ def getbodega(request):
         return Response({"error": str(e)}, status=500)
 
 
+
 @api_view(['GET'])
 @swagger_auto_schema(
     operation_description='Obtener saludo',
@@ -80,6 +82,7 @@ def saludo(request):
         return Response({"error": str(e)}, status=500)
 
 
+
 @api_view(['GET'])
 @swagger_auto_schema(
     operation_description='obtener saldo',
@@ -90,7 +93,7 @@ def saludo(request):
 )
 def saldo(request):
     """
-    obtrener saldo de API.
+    obtener saldo de API.
     """
     url = "https://musicpro.bemtorres.win/api/v1/test/saldo"
     try:
@@ -106,9 +109,10 @@ def saldo(request):
         return Response({"error": str(e)}, status=500)
 
 
+
 @api_view(['GET', 'POST', 'DELETE'])
 @swagger_auto_schema(
-    operation_description='Recuperar, actualizar o eliminar un producto..',
+    operation_description='Obtener, actualizar o eliminar un producto..',
     responses={
         200: 'Success',
         201: 'Created',
@@ -118,7 +122,7 @@ def saldo(request):
 )
 def product_list(request):
     """
-    Recuperar, actualizar o eliminar un producto...
+    Obtener, actualizar o eliminar un producto...
     """
     if request.method == 'GET':
         productos = Producto.objects.all()
@@ -144,7 +148,7 @@ def product_list(request):
 
 @api_view(['GET', 'PUT', 'DELETE'])
 @swagger_auto_schema(
-    operation_description='Recuperar, actualizar o eliminar un producto.',
+    operation_description='Obtener, actualizar o eliminar un producto.',
     responses={
         200: 'Success',
         202: 'Accepted',
@@ -155,7 +159,7 @@ def product_list(request):
 )
 def product_detail(request, product_id):
     """
-    Recuperar, actualizar o eliminar un producto..
+    Obtener, actualizar o eliminar un producto..
     """
     try:
         producto = Producto.objects.get(idProducto=product_id)
@@ -183,14 +187,14 @@ def product_detail(request, product_id):
 
 
 
-@api_view(['GET','POST','DELETE'])
+@api_view(['GET'])
 @swagger_auto_schema(
-    operation_description='Lista, crea o elimina marcas',
+    operation_description='Lista todas las marcas de los instrumentos',
     responses={200: 'Success', 400: 'Bad Request'},
 )
 def marcas_list(request):
     """
-    Lista todas las marcas, crea una marca, o elimina todas las marcas.
+    Lista todas las marcas de los instrumentos.
     """
     if request.method == 'GET':
         marcas = Marca.objects.all()
