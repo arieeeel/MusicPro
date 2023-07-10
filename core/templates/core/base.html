@@ -48,6 +48,11 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="{% url 'productos' %}">Productos</a>
                 </li>
+                {% if user.is_superuser %}
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'product-list' %}">Crud</a>
+                </li>
+                {% endif %}
                 <li class="nav-item">
                 <a class="nav-link active" href="#">
                     <i class="fas fa-shopping-cart"></i> Carrito

@@ -7,8 +7,12 @@ from .forms import ProductoForm
 # Create your views here.
 
 def product_list(request):
-    context =   { 'productos': Producto.objects.all()}
-    return render(request, 'crud/product-list.html',context)
+    if request.user.is_superuser:
+        productos = Producto.objects.all()
+        context = {'productos': productos}
+        return render(request, 'crud/product-list.html', context)
+    else:
+        return render(request, '404.html')
 
 def product_new(request):
     if request.method == 'POST':
