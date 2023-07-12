@@ -29,3 +29,15 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.descripcion
+
+class Producto_Api():
+    idProducto-Api = models.CharField(primary_key=True,max_length=20, verbose_name='ID')
+    codigo = models.CharField(max_length=100,verbose_name='Codigo')
+    nombre = models.CharField(max_length=150,verbose_name='Nombre')
+    descripcion = models.CharField(max_length=300,verbose_name='Descripcion')
+    producto_imagen = models.image(upload_to='imagen/productos',null=True, blank=True)
+    precio = models.CharField(max_length=300,verbose_name='Precio')
+    precio_raw = models.CharField(max_length=300,verbose_name='Precio-Raw')
+    asset = models.CharField(max_length=300,verbose_name='Asset')
+    asset_raw = models.CharField(max_length=300,verbose_name='Asset-Raw')
+    estado = models.CharField(max_length=300,verbose_name='estado')
