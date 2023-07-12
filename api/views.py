@@ -37,23 +37,16 @@ def transporte(request):
         500: 'Internal Server Error',
     },
 )
-def getbodega(request):
+
+def bodega(request):
     """
     obtener productos de bodega API.
     """
-    url = "https://musicpro.bemtorres.win/api/v1/bodega/producto"
-    try:
-        response = requests.get(url)
-        if response.status_code == 200:
-            data = response.json()
-            # Aquí puedes trabajar con la respuesta del servidor
-            return Response(data)  # Devolver una respuesta JSON con DRF
-        else:
-            error_message = "Error en la solicitud: " + str(response.status_code)
-            return Response({"error": error_message}, status=response.status_code)
-    except requests.exceptions.RequestException as e:
-        return Response({"error": str(e)}, status=500)
-
+    response = requests.get('https://musicpro.bemtorres.win/api/v1/bodega/producto')
+    data = response.json()
+    return render(request, 'bodega.html', {
+        "productos": data['productos'],
+        })
 
 
 @api_view(['GET'])
